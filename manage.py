@@ -5,6 +5,10 @@ from flask_script import Manager,Server
 # from app.models import User,Role,Review
 # Set up migrations
 # from flask_migrate import Migrate,MigrateCommand
+# import os
+
+# SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/nlist' 
+
 
 # Creating app instance
 # app = create_app('test')
