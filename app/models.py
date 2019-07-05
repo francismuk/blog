@@ -25,7 +25,7 @@ class User(UserMixin, db.Model):
     # id column that is the primary key
     id = db.Column(db.Integer, primary_key=True)
 
-    # username column for usernames
+    # username column for username
     username = db.Column(db.String(255))
 
     # email column for a user's email address
@@ -34,13 +34,6 @@ class User(UserMixin, db.Model):
     # password_hash column for passwords
     password_hash = db.Column(db.String(255))
 
-    # relationship between user and line class
-    lines = db.relationship('Line', backref='user', lazy='dynamic')
-
-    # relationship between user and comment class
-    comments = db.relationship('Comment', backref='user', lazy='dynamic')
-
-    # relationship between line and comment class
 
     @property
     def password(self):
