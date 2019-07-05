@@ -1,13 +1,13 @@
 # Import db from app factory
 from app import create_app
-from flask_script import Manager,Server
+from flask_script import Manager, Server
 # Connect to models
 # from app.models import User,Role,Review
 # Set up migrations
 # from flask_migrate import Migrate,MigrateCommand
 # import os
 
-# SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/nlist' 
+#SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/nlist'
 
 
 # Creating app instance
@@ -16,14 +16,15 @@ app = create_app('development')
 # app = create_app('production')
 
 
-# Create manager instance 
+# Create manager instance
 manager = Manager(app)
 
 # Create migrate instance
 # migrate = Migrate(app,db)
 
-manager.add_command('server',Server)
+manager.add_command('server', Server)
 # manager.add_command('db',MigrateCommand)
+
 
 @manager.command
 def test():
