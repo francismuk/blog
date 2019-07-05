@@ -1,8 +1,8 @@
 import os
 
 class Config:
-    # SECRET_KEY = '1234'
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/nlist'
+    SECRET_KEY = '1234'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
     # SQLALCHEMY_TRACK_MODIFICATIONS = False
     # UPLOADED_PHOTOS_DEST ='app/static/photos'
    
