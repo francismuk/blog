@@ -1,7 +1,7 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
-from ..models import Category, Blog, Lines
-from .forms import LineForm,CommentForm,GroupForm
+from ..models import Category, Blog, Comment
+from .forms import BlogForm,CommentForm,CategoryForm
 from flask_login import login_required,current_user
 
 # Views
@@ -14,29 +14,29 @@ def index():
 
     title = 'Home'
 
-    groups = Group.get_groups()
+    categories = Category.get_categories()
 
-    return render_template('index.html', title = title, groups=groups )
+    return render_template('index.html', title = title, categories=categories )
 
-@main.route('/group/new', methods=['GET','POST'])
+@main.route('/category/new', methods=['GET','POST'])
 @login_required
-def new_group():
+def new_category():
 
     '''
     View new group route function that returns a page with a form to create a category
     '''
 
-    form = GroupForm()
+    form = CategoryForm()
 
     if form.validate_on_submit():
         name = form.name.data
-        new_group = Group(name=name)
-        new_group.save_group()
+        new_category = Category(name=name)
+        new_category.save_category()
 
         return redirect(url_for('.index'))
 
-    title = 'New Group'
-    return render_template('new_group.html', group_form = form)
+    title = 'New Category'
+    return render_template('new_category.html', group_form = form)
 
 
 @main.route('/group/<int:id>')
