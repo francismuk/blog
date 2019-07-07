@@ -19,10 +19,10 @@ app = create_app('production')
 manager = Manager(app)
 
 # Create migrate instance
-# migrate = Migrate(app,db)
+migrate = Migrate(app,db)
 
 manager.add_command('server', Server)
-# manager.add_command('db',MigrateCommand)
+manager.add_command('db',MigrateCommand)
 
 
 @manager.command
@@ -35,9 +35,9 @@ def test():
     unittest.TextTestRunner(verbosity=2).run(tests)
 
 
-# @manager.shell
-# def make_shell_context():
-#     return dict( app=app, db=db, User=User, Review=Review, Role=Role)
+@manager.shell
+def make_shell_context():
+   return dict( app=app, db=db)
 
 
 if __name__ == '__main__':
