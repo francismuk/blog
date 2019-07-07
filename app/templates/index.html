@@ -3,12 +3,40 @@
 <!-- Content block -->
 {% block content %}
 
-    <title> {{ title }} </title>
+<title> {{ title }} </title>
 
-    <div class="container">
+<div class="container">
 
-        <h1>Home Page</h1>
+        <div class="row">
 
-    </div>
+            <h1 class = "main">
+                Categories
+            </h1>
+            
+        </div>
+        <br>
+        
 
+            
+        
+        
+            <h2 class="category-create">
+                <a href="/category/new">
+                   Click To Create A Category
+                   <i class="fas fa-file"></i>
+                </a>
+            </h2>
+            
+            <hr>
+
+    
+
+    
+
+    <ul class = "lists">
+        {{ macro.displayCategoryList(categories) }}
+    </ul>
+
+
+</div>
 {% endblock %}

@@ -1,0 +1,108 @@
+{% macro displayGroupList(group_list) %}
+    {% for category in category_list %}
+        <div class="row">
+            
+            <div class="col-md-2">
+                
+            </div>
+
+            <div class=" col-xs-12">
+            
+                <li class="text-center">
+
+                    <h3>
+
+                        <a href="/category/{{category.id}}">
+                            {{ category.name }}   
+                        </a>
+                        
+                    </h3>
+
+                </li>
+
+        </div>
+
+    {% endfor %}
+
+{% endmacro %}
+
+<!-- Display lines -->
+{% macro displayBlogList(blog_list) %}
+
+
+    {% for blog in blog_list %}
+        <div class="row">
+            
+            <div class="col-md-2 col-lg-2">
+                
+            </div>
+
+            <div class=" col-xs-12">
+            
+                <li class="text-center">
+
+                    <h3>
+
+                        <a href="{{url_for('main.single_line', id = line.id )}}" class="pitch-content">
+                            {{ blog.blog_content }}
+                        </a>
+
+                        <br>
+
+                        <small class="author"> by {{ blog.user.username }} </small>
+                        
+                    </h3>
+
+                </li>
+
+            </div>
+
+            <div class="col-md-2 col-lg-2">
+                
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+{% endmacro %}
+
+
+<!-- Display lines -->
+{% macro displayCommentList(comment_list) %}
+
+
+    {% for comment in comment_list %}
+        <div class="row">
+            
+            <div class="col-md-2 col-lg-2">
+                
+            </div>
+
+            <div class=" col-xs-12">
+            
+                <li>
+
+                    <h4 class="comment-content">
+                        
+                        {{ comment.comment_content}}
+
+                        <br>
+
+                        <p> by {{ comment.user.username }} </p>
+                        
+                    </h4>
+
+                </li>
+
+            </div>
+
+            <div class="col-md-2">
+                
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+{% endmacro %}
