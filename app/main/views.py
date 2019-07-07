@@ -45,7 +45,7 @@ def category(id):
     '''
     View category route function that returns a list of pitches in the route and allows a user to create a pitch for the selected route
     '''
-    category = category.query.get(id)
+    category = Category.query.get(id)
 
     if category is None:
         abort(404)
