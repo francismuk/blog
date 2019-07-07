@@ -13,7 +13,7 @@ class BlogForm(FlaskForm):
     '''
     Class to create a wtf form for creating a pitch
     '''
-    line_content =  StringField('One Minute Pitch', validators=[Required()])
+    blog_content =  StringField('Enter a blog', validators=[Required()])
     submit = SubmitField('Submit')
 
 class CommentForm(FlaskForm):

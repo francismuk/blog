@@ -55,12 +55,12 @@ def category(id):
 
     return render_template('category.html', title=title, category=category, blogs=blogs)
 
-@main.route('/category/line/new/<int:id>', methods=['GET','POST'])
+@main.route('/category/blog/new/<int:id>', methods=['GET','POST'])
 @login_required
-def new_line(id):
+def new_blog(id):
 
     '''
-    View new line route function that returns a page with a form to create a pitch for the specified category
+    View new blog route function that returns a page with a form to create a pitch for the specified category
     '''
     category = Category.query.filter_by(id=id).first()
 
@@ -79,44 +79,44 @@ def new_line(id):
     title = 'New Pitch'
     return render_template('new_blog.html', title=title, blog_form=form)
 
-@main.route('/line/<int:id>')
-def single_line(id):
+@main.route('/blog/<int:id>')
+def single_blog(id):
 
     '''
-    View single line function that returns a page containing a pitch, its comments and votes
+    View single blog function that returns a page containing a pitch, its comments and votes
     '''
-    line = Line.query.get(id)
+    blog = Blog.query.get(id)
     
-    if line is None:
+    if blog is None:
         abort(404)
 
     comments = Comment.get_comments(id)
 
 
-    title = f'Pitch {line.id}'
+    title = f'Pitch {blog.id}'
 
-    return render_template('line.html', title=title, line=line, comments=comments)
+    return render_template('blog.html', title=title, blog=blog, comments=comments)
 
-@main.route('/line/new/<int:id>', methods=['GET','POST'])
+@main.route('/blog/new/<int:id>', methods=['GET','POST'])
 @login_required
 def new_comment(id):
 
     '''
-    View new line route function that returns a page with a form to create a pitch for the specified category
+    View new blog route function that returns a page with a form to create a pitch for the specified category
     '''
-    line = Line.query.filter_by(id=id).first()
+    blog = Blog.query.filter_by(id=id).first()
 
-    if line is None:
+    if blog is None:
         abort(404)
 
     form = CommentForm()
 
     if form.validate_on_submit():
         comment_content = form.comment_content.data
-        new_comment = Comment( comment_content=comment_content, line=line, user=current_user)
+        new_comment = Comment( comment_content=comment_content, blog=blog, user=current_user)
         new_comment.save_comment()
 
-        return redirect(url_for('.single_line', id=line.id ))
+        return redirect(url_for('.single_blog', id=blog.id ))
 
     title = 'New Comment'
     return render_template('new_comment.html', title=title, comment_form=form)
