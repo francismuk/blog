@@ -115,7 +115,7 @@ class Blog(db.Model):
         db.session.commit()
         
     @classmethod
-    def get_blogs(cls,group_id):
+    def get_blogs(cls,category_id):
         '''
         Function that queries the Lines Table in the database and returns only information with the specified group id
         Args:
@@ -123,7 +123,7 @@ class Blog(db.Model):
         Returns:
             lines : all the information for lines with the specific group id 
         '''
-        blogs = Blog.query.order_by(Blog.id.desc()).filter_by(group_id=group_id).all()
+        blogs = Blog.query.order_by(Blog.id.desc()).filter_by(category_id=category_id).all()
 
         return blogs
     
