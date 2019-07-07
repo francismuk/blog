@@ -1,5 +1,5 @@
-# Flask template
-#### i am a flask template
+# Blog App
+#### This ia ann app that allows users to blog and the blog is 
 
 ## Description
 I am a template to be used to develop flask application ready for production. 
