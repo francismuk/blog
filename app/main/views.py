@@ -23,7 +23,7 @@ def index():
 def new_category():
 
     '''
-    View new group route function that returns a page with a form to create a category
+    View new category route function that returns a page with a form to create a category
     '''
 
     form = CategoryForm()
@@ -36,45 +36,45 @@ def new_category():
         return redirect(url_for('.index'))
 
     title = 'New Category'
-    return render_template('new_category.html', group_form = form)
+    return render_template('new_category.html', category_form = form, title=title)
 
 
-@main.route('/group/<int:id>')
-def group(id):
+@main.route('/category/<int:id>')
+def category(id):
 
     '''
-    View group route function that returns a list of pitches in the route and allows a user to create a pitch for the selected route
+    View category route function that returns a list of pitches in the route and allows a user to create a pitch for the selected route
     '''
-    group = Group.query.get(id)
+    category = category.query.get(id)
 
-    if group is None:
+    if category is None:
         abort(404)
 
-    lines = Line.get_lines(id)
-    title = f'{group.name} page'
+    blogs = Blog.get_blogs(id)
+    title = f'{category.name} page'
 
-    return render_template('group.html', title=title, group=group, lines=lines)
+    return render_template('category.html', title=title, category=category, blogs=blogs)
 
-@main.route('/group/line/new/<int:id>', methods=['GET','POST'])
+@main.route('/category/line/new/<int:id>', methods=['GET','POST'])
 @login_required
 def new_line(id):
 
     '''
     View new line route function that returns a page with a form to create a pitch for the specified category
     '''
-    group = Group.query.filter_by(id=id).first()
+    category = Category.query.filter_by(id=id).first()
 
-    if group is None:
+    if category is None:
         abort(404)
 
     form = LineForm()
 
     if form.validate_on_submit():
         line_content = form.line_content.data
-        new_line = Line( line_content=line_content, group=group, user=current_user)
+        new_line = Line( line_content=line_content, category=category, user=current_user)
         new_line.save_line()
 
-        return redirect(url_for('.group', id=group.id ))
+        return redirect(url_for('.category', id=category.id ))
 
     title = 'New Pitch'
     return render_template('new_line.html', title=title, line_form=form)
