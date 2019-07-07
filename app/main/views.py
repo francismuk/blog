@@ -67,17 +67,17 @@ def new_line(id):
     if category is None:
         abort(404)
 
-    form = LineForm()
+    form = BlogForm()
 
     if form.validate_on_submit():
-        line_content = form.line_content.data
-        new_line = Line( line_content=line_content, category=category, user=current_user)
-        new_line.save_line()
+        blog_content = form.blog_content.data
+        new_blog = Blog( blog_content=blog_content, category=category, user=current_user)
+        new_blog.save_blog()
 
         return redirect(url_for('.category', id=category.id ))
 
     title = 'New Pitch'
-    return render_template('new_line.html', title=title, line_form=form)
+    return render_template('new_blog.html', title=title, blog_form=form)
 
 @main.route('/line/<int:id>')
 def single_line(id):
