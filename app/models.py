@@ -50,7 +50,7 @@ class User(UserMixin, db.Model):
         return f'User {self.username}'
 
 class Category(db.Model):
-    __tablename__= 'category'
+    __tablename__ = 'categories'
     id = db.Column(db.Integer, primary_key=True)
     name= db.Column(db.String(255))
     blogs= db.relationship('Blog', backref= 'group', lazy='dynamic')
@@ -90,7 +90,7 @@ class Blog(db.Model):
     id = db.Column(db.Integer, primary_key = True)
 
     # line_content column for the one minute pitch a user writes
-    line_content = db.Column(db.String(200))
+    blog_content = db.Column(db.String(200))
 
     # group_id column for linking a line to a specific group
     category_id = db.Column(db.Integer, db.ForeignKey("categories.id") )
@@ -115,7 +115,7 @@ class Blog(db.Model):
         db.session.commit()
         
     @classmethod
-    def get_lines(cls,group_id):
+    def get_blogs(cls,group_id):
         '''
         Function that queries the Lines Table in the database and returns only information with the specified group id
         Args:
@@ -142,7 +142,7 @@ class Comment(db.Model):
     comment_content = db.Column(db.String)
 
     # line_id column for linking a line to a specific line
-    line_id = db.Column(db.Integer, db.ForeignKey("lines.id") )
+    blog_id = db.Column(db.Integer, db.ForeignKey("blogs.id") )
 
     # user_id column for linking a line to a specific group
     user_id = db.Column(db.Integer, db.ForeignKey("users.id") )
@@ -155,7 +155,7 @@ class Comment(db.Model):
         db.session.commit()
 
     @classmethod
-    def get_comments(cls,line_id):
+    def get_comments(cls,blog_id):
         '''
         Function that queries the Comments Table in the database and returns only information with the specified line id
         Args:
@@ -163,6 +163,6 @@ class Comment(db.Model):
         Returns:
             comments : all the information for comments with the specific line id 
         '''
-        comments = Comment.query.filter_by(line_id=line_id).all()
+        comments = Comment.query.filter_by(blog_id=blog_id).all()
 
         return comments
