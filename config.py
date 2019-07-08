@@ -5,7 +5,7 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
-    QUOTES_API_KEY='http://quotes.stormconsultancy.co.uk/random.json'
+    # QUOTES_API_KEY='http://quotes.stormconsultancy.co.uk/random.json'
     
 #  email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
