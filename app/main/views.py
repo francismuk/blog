@@ -42,7 +42,6 @@ def new_category():
 
 @main.route('/category/<int:id>')
 def category(id):
-
     '''
     View category route function that returns a list of pitches in the route and allows a user to create a pitch for the selected route
     '''
@@ -82,7 +81,6 @@ def new_blog(id):
 
 @main.route('/blog/<int:id>')
 def single_blog(id):
-
     '''
     View single blog function that returns a page containing a pitch, its comments and votes
     '''
@@ -101,7 +99,6 @@ def single_blog(id):
 @main.route('/blog/new/<int:id>', methods=['GET','POST'])
 @login_required
 def new_comment(id):
-
     '''
     View new blog route function that returns a page with a form to create a pitch for the specified category
     '''
