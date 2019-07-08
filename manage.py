@@ -6,7 +6,7 @@ from app.models import User, Category
 from flask_migrate import Migrate,MigrateCommand
 import os
 
-SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
+# SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
 
 
 # Creating app instance
