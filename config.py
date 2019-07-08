@@ -2,12 +2,12 @@ import os
 
 class Config:
     SECRET_KEY = '1234'
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blogs'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
-    os.environ['SQLALCHEMY_DATABASE_URI']='postgresql+psycopg2://francis:1234@localhost/blog'
-    os.environ['MAIL_USERNAME'] = 'user@example.com'
-    os.environ['MAIL_PASSWORD'] = 'aeb72hasow82ajl'
+    os.environ['SQLALCHEMY_DATABASE_URI']='postgresql+psycopg2://francis:1234@localhost/blogs'
+    os.environ['MAIL_USERNAME'] = 'mukuha58@gmail.com'
+    os.environ['MAIL_PASSWORD'] = 'fwm284fwm'
     os.environ['SECRET_KEY'] = '1234'
     # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
 
@@ -30,7 +30,7 @@ class ProdConfig(Config):
     # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
 
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blogs'
 
 class TestConfig(Config):
     '''
@@ -48,10 +48,10 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blogs'
 
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blogs'
 
 
 

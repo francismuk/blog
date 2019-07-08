@@ -13,7 +13,7 @@ import os
 # app = create_app('test')
 # app = create_app('development')
 app = create_app('production')
-SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
+SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blogs'
 
 
 
