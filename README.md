@@ -1,96 +1,57 @@
-# Blog App
-#### This ia ann app that allows users to blog and the blog is 
+# One Minute Pitch
+## An application that allows users to make one minute pitches and get feedback and votes on them. 8-7-2019
+
+
+## By Francis Mukuha
 
 ## Description
-I am a template to be used to develop flask application ready for production. 
+This application is  a web application that allows users to submit a pitch. Also, other users are allowed to vote on submitted pitches and leave comments to give their feedback on the pitches. For a user to submit a pitch, vote on a pitch or give feedback on a pitch they need to have an account. <br>
 
-#### Link to deployed site
-....
+The pitches are organized by categories. Examples of categories: <br>
+- NEWS
+- FICTION
+- JOKES
+- FASHION
+- FOOD
 
-## Table of content
-1. [Description](#description)
-2. [Setup and installations](#setup-and-installations)
-3. [Contributing](#contributing)
-4. [Bugs](#bugs)
-5. [Contact me](#support-and-contact-details)
-6. [Licensing](#license)
+## User Stories
+As a user I would like:
+* to view the different categories and add new ones
+* to see the blogs other people have posted
+* to submit a blog in any category
+* to comment on the different blogs and leave feedback
+* to view random quotes to give me inspiration as I blog
+
+## Specifications
+| Behavior        | Input           | Outcome  |
+| ------------- |:-------------:| -----:|
+| Register to be a user | Your email <br> Username <br> Password  | New user is registered and welcome email sent to the user |
+| Log in | Your email <br> Password  | Logged in |
+| Display blog categories | N/A | List of various blog categories |
+| See blogs from selected category | **Click** add category | Directed to a page with a list of blogs from the selected category |
+| Create a blog | **Click Create A Blog** | An authenticated user is directed to a page with a form where the user can create and submit a blog |
+| See a blog | **Click** on a blog | A user is directed to a page containing the blog and its comments |
+| Comment and give feedback on a blog | **Click Comment** | An authenticated user is directed to a page with a form where the user can create and submit a comment on a blogs |
+
+## Prerequsites
+    - Python 3.6 required
+
+## Set-up and Installation
+    - Clone the Repo
+      (git clone https://github.com/francismuk/pitchers)
+    - Edit the start.sh file with your api key from the news.org website
+    - Install python 3.6
+       (sudo apt-get install python3.6)
+    - Run chmod a+x start.py
+    - Run ./start.py
 
 
-## Setup and installations
-
-#### Prerequisites
-1. [Python3.6](https://www.python.org/downloads/)
-)
-2. [virtualenv](https://virtualenv.pypa.io/en/stable/installation/)
-3. [Pip](https://pip.pypa.io/en/stable/installing/)
-
-#### Technologies used
+## Technologies used
     - Python 3.6
+    - Quotes API
     - HTML
-    - Bootstrap 4
-    - Heroku
-    - Postgresql
-    - Flask
+    - Bootstrap
+    - CSS
 
-#### Clone the Repo and rename it to suit your needs.
-```bash
-git clone git@github.com:newtonkiragu/flask-template.git
-```
-#### Initialize git and add the remote repository
-```bash
-git init
-```
-```bash
-git remote add origin <your-repository-url>
-```
-
-#### Create and activate the virtual environment
-```bash
-python3.6 -m virtualenv virtual
-```
-
-```bash
-source virtual/bin/activate
-```
-
-#### Setting up environment variables
-Create a `.env` file and paste paste the following filling where appropriate:
-```
-SECRET_KEY='<Secret_key>'
-DEBUG=True
-```
-
-#### Install dependancies
-Install dependancies that will create an environment for the app to run
-`pip install -r requirements.txt`
-
-#### Make and run migrations
-```bash
-python3.6 manage.py makemigrations && python3.6 manage.py migrate
-```
-
-#### Run the app
-```bash
-python3.6 manage.py runserver
-```
-Open [localhost:5000](http://127.0.0.1:5000/)
-
-
-## Contributing
-Please read this [comprehensive guide](https://opensource.guide/how-to-contribute/) on how to contribute. Pull requests are welcome :-)
-
-## Bugs
-Create an issue mentioning the bug you have found
-
-#### Known bugs
- - N/A
-
-
-
-## Support and contact details
-Contact [Newton Karanu](karanunewton4@gmail.com) for further help/support
-
-### License
-MIT
-
-Copyright (c)2018 **Newton Karanu**
+### [MIT License](https://opensource.org/licenses/MIT)
+Copyright (c) Francis Mukuha W
