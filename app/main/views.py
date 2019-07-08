@@ -3,7 +3,7 @@ from . import main
 from ..models import Category, Blog, Comment
 from .forms import BlogForm,CommentForm,CategoryForm
 from flask_login import login_required,current_user
-
+from app.request import get_quote
 # Views
 @main.route('/')
 def index():
@@ -13,10 +13,11 @@ def index():
     '''
 
     title = 'Home'
+    quote = get_quote()
 
     categories = Category.get_categories()
 
-    return render_template('index.html', title = title, categories=categories )
+    return render_template('index.html', title = title, categories=categories, quote=quote )
 
 @main.route('/category/new', methods=['GET','POST'])
 @login_required
