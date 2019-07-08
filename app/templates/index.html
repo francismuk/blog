@@ -1,43 +1,37 @@
-{% extends 'base.html' %}
-{% import 'macros.html' as macro %}
+{% extends 'base.html' %} {% import 'macros.html' as macro %}
 
 <!-- Content block -->
 {% block content %}
 
-<title> {{ title }} </title>
+<title>{{ title }}</title>
 
 <div class="container">
+  <div class="row">
+    <div class="jumbotron">
+        <blockquote class="blockquote mb-0">
+          <p id="quote">{{quote.quote}}</p>
+          <footer class="blockquote-footer"><cite title="Source Title">{{quote.author}}</cite></footer>
+        </blockquote>
+      </div><br>
+      <h1 class="main">
+        Categories
+      </h1>
+  </div>
+  <br />
 
-        <div class="row">
+  <h2 class="category-create">
+    <a href="/category/new">
+      Click To Create A Category
+      <i class="fas fa-file"></i>
+    </a>
+  </h2>
 
-            <h1 class = "main">
-                Categories
-            </h1>
-            
-        </div>
-        <br>
-        
+  <hr />
 
-            
-        
-        
-            <h2 class="category-create">
-                <a href="/category/new">
-                   Click To Create A Category
-                   <i class="fas fa-file"></i>
-                </a>
-            </h2>
-            
-            <hr>
-
-    
-
-    
-
-    <ul class = "lists">
-        {{ macro.displayCategoryList(categories) }}
-    </ul>
-
-
+  <ul class="lists">
+    {{
+      macro.displayCategoryList(categories)
+    }}
+  </ul>
 </div>
 {% endblock %}
