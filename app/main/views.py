@@ -69,8 +69,9 @@ def new_blog(id):
     form = BlogForm()
 
     if form.validate_on_submit():
+
         blog_content = form.blog_content.data
-        new_blog = Blog(blog_content=blog_content,category=category, user=current_user)
+        new_blog = Blog(blog_content=blog_content,user=current_user)
         new_blog.save_blog()
 
         return redirect(url_for('.category', id=category.id))

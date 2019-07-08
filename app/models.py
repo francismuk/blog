@@ -34,6 +34,12 @@ class User(UserMixin, db.Model):
     # password_hash column for passwords
     password_hash = db.Column(db.String(255))
 
+    # relationship between user and line class
+    blogs = db.relationship('Blog', backref='user', lazy='dynamic')
+
+    # relationship between user and comment class
+    comments = db.relationship('Comment', backref='user', lazy='dynamic')
+
 
     @property
     def password(self):
@@ -53,7 +59,7 @@ class Category(db.Model):
     __tablename__ = 'categories'
     id = db.Column(db.Integer, primary_key=True)
     name= db.Column(db.String(255))
-    blogs= db.relationship('Blog', backref= 'group', lazy='dynamic')
+    blogs= db.relationship('Blog', backref= 'blog', lazy='dynamic')
     
     def save_category(self):
         '''

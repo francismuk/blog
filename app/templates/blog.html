@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% import 'macros.html' as macro %}
+<title> {{ title }} </title>
 
 <!-- Content block -->
 {% block content %}
-<title> {{ title }} </title>
 <div class="container">
 
     <div class="row">
@@ -19,7 +19,6 @@
         </div>
 
         <div class=" col-xs-10 col-sm-10 col-md-8 col-lg-8">
-            <h1>{{blog.blog_title}}</h1>
             <h2>
 
                 <a href="/category/{{blog.category.id}}" class="pitch-content">
