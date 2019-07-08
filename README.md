@@ -1,5 +1,5 @@
-# One Minute Pitch
-## An application that allows users to make one minute pitches and get feedback and votes on them. 8-7-2019
+# BLOG
+## An application that allows users to make your own blogs of any category and get feedback from other users as well as view random quotes. 8-7-2019
 
 
 ## By Francis Mukuha
