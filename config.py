@@ -9,6 +9,7 @@ class Config:
     os.environ['MAIL_USERNAME'] = 'user@example.com'
     os.environ['MAIL_PASSWORD'] = 'aeb72hasow82ajl'
     os.environ['SECRET_KEY'] = '1234'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
 
 #  email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
@@ -16,8 +17,7 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME='mukuha58@gmail.com'
     MAIL_PASSWORD='fwm284fwm'
-    
-    pass
+
 
 
 class ProdConfig(Config):
@@ -27,7 +27,11 @@ class ProdConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
+
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
+
 class TestConfig(Config):
     '''
     Testing configuration child class
@@ -44,8 +48,11 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
 
-    DEBUG = True
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
+
 
 
 config_options = {

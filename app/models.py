@@ -77,7 +77,8 @@ class Category(db.Model):
         categories = Category.query.all()
 
         return categories
-    
+
+
 class Blog(db.Model):
     '''
     Line class to define the pitches
@@ -88,15 +89,12 @@ class Blog(db.Model):
 
     # id column that is the primary key
     id = db.Column(db.Integer, primary_key = True)
-
-    # line_content column for the one minute pitch a user writes
+    # linecontent column for the one minute pitch a user writes
     blog_content = db.Column(db.String(200))
-
     # group_id column for linking a line to a specific group
-    category_id = db.Column(db.Integer, db.ForeignKey("categories.id") )
-
+    category_id = db.Column(db.Integer, db.ForeignKey("categories.id"))
     # user_id column for linking a line to a specific group
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id") )
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
     # relationship between line and comment class
     comments = db.relationship('Comment', backref='line', lazy='dynamic')
@@ -110,9 +108,9 @@ class Blog(db.Model):
         db.session.add(self)
         db.session.commit()
         
-    def delete_blog(self):
-        db.session.delete(self)
-        db.session.commit()
+    # def delete_blog(self):
+    #     db.session.delete(self)
+    #     db.session.commit()
         
     @classmethod
     def get_blogs(cls,category_id):

@@ -1,7 +1,7 @@
 from app import create_app, db
 from flask_script import Manager, Server
 # Connect to models
-from app.models import User
+from app.models import User, Category
 # Set up migrations
 from flask_migrate import Migrate,MigrateCommand
 import os
@@ -13,6 +13,8 @@ SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
 # app = create_app('test')
 # app = create_app('development')
 app = create_app('production')
+SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://francis:1234@localhost/blog'
+
 
 
 # Create manager instance
@@ -37,7 +39,7 @@ def test():
 
 @manager.shell
 def make_shell_context():
-   return dict( app=app, db=db)
+   return dict(app=app, db=db, Category=Category)
 
 
 if __name__ == '__main__':
